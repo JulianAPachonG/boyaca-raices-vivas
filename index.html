@@ -289,6 +289,125 @@
             padding: 2rem 1rem;
             margin-top: 3rem;
         }
+
+        /* --- CSS ADICIONAL PARA LA NUEVA RUTA 2 (Senderismo Tunja-Paipa) --- */
+        .ruta-info {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .ruta-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #2e8540;
+            padding-bottom: 1rem;
+        }
+
+        .ruta-fecha {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .detail-item h4 {
+            color: #2e8540;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            border-left: 3px solid #2e8540;
+            padding-left: 1.5rem;
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -1.8rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            background: #2e8540;
+            border-radius: 50%;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #2e8540;
+            display: block;
+        }
+
+        .activity {
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .inclusiones ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .inclusiones li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .inclusiones li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2e8540;
+            font-weight: bold;
+        }
+
+        .coordinacion {
+            background: #e8f5e8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .contacto-inscripcion {
+            text-align: center;
+            background: #2e8540;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .btn-inscribirse {
+            background: #f9a825;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-inscribirse:hover {
+            background: #e69500;
+            transform: translateY(-2px);
+        }
         
         @media (max-width: 768px) {
             .rutas-grid {
@@ -306,6 +425,24 @@
             
             .mapa-container {
                 height: 300px;
+            }
+
+            .ruta-info {
+                padding: 1rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            .contacto-inscripcion {
+                padding: 1.5rem;
+            }
+
+            .btn-inscribirse {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -371,9 +508,314 @@
                     <img src="imagenes/Paipa.webp" alt="Paisaje de Paipa">
                 </div>
             </div>
+
+            <!-- RUTA 1: En bus desde Tunja a Paipa -->
+            <div class="ruta-info">
+                <div class="ruta-header">
+                    <h2>RUTA 1: En bus desde Tunja a Paipa</h2>
+                    <h3>"Descubre las Raíces Vivas de Boyacá"</h3>
+                    <p class="ruta-fecha"><strong>Fecha:</strong> Sábado 26 de Septiembre de 2025</p>
+                </div>
+                
+                <!-- Imagen específica de la ruta -->
+                <div class="imagen-ruta" style="text-align: center; margin: 1.5rem 0;">
+                    <img src="imagenes/bus.jpeg" alt="Transporte en bus" style="max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="ruta-details">
+                    <div class="detail-item">
+                        <h4>🏁 Punto de Encuentro</h4>
+                        <p>Terminal de Transportes, Tunja</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>⏰ Horarios</h4>
+                        <p><strong>Encuentro:</strong> 6:00 A.M.</p>
+                        <p><strong>Salida:</strong> 6:30 A.M.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>📊 Información Técnica</h4>
+                        <p><strong>Distancia:</strong> 45 Kms. aprox.</p>
+                        <p><strong>Duración:</strong> 8-10 horas</p>
+                        <p><strong>Categoría:</strong> Fácil</p>
+                        <p><strong>Clima:</strong> Templado (12°C - 18°C)</p>
+                    </div>
+                    <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #2e8540, #4caf50); color: white; text-align: center; border-radius: 15px; padding: 1.5rem;">
+                        <h4 style="color: white; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$85.000 COP</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Por persona - Incluye todo lo mencionado</p>
+                    </div>
+                </div>
+                <div class="itinerario">
+                    <h4>🗓️ Itinerario Detallado</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="time">06:30 - 07:30 a.m.</span>
+                            <span class="activity">Salida en bus desde Tunja hacia Paipa</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">07:30 - 09:00 a.m.</span>
+                            <span class="activity">Llegada a Paipa - Desayuno típico boyacense</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">09:00 - 11:00 a.m.</span>
+                            <span class="activity">Visita al Lago Sochagota - Actividades acuáticas</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">11:00 - 12:30 p.m.</span>
+                            <span class="activity">Termas de Paipa - Relajación y bienestar</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">12:30 - 2:00 p.m.</span>
+                            <span class="activity">Almuerzo tradicional boyacense</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">2:00 - 4:00 p.m.</span>
+                            <span class="activity">Recorrido por el centro histórico de Paipa</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">4:00 - 5:00 p.m.</span>
+                            <span class="activity">Regreso a Tunja</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inclusiones">
+                    <h4>✅ Incluye</h4>
+                    <ul>
+                        <li>Transporte en bus Tunja-Paipa-Tunja</li>
+                        <li>Desayuno típico boyacense</li>
+                        <li>Entrada a las Termas de Paipa</li>
+                        <li>Almuerzo tradicional boyacense</li>
+                        <li>Guía turístico especializado</li>
+                        <li>Seguro de accidentes</li>
+                    </ul>
+                    <h4>❌ No Incluye</h4>
+                    <ul>
+                        <li>Gastos personales</li>
+                        <li>Actividades adicionales no mencionadas</li>
+                        <li>Propinas</li>
+                    </ul>
+                </div>
+                <div class="coordinacion">
+                    <h4>👨‍💼 Coordinación y Guianza</h4>
+                    <p><strong>Organizador y Guía Experto:</strong> MARÍA ELENA RODRÍGUEZ</p>
+                    <p><em>"Descubre la magia de Paipa y sus aguas termales"</em></p>
+                </div>
+                <div class="contacto-inscripcion">
+                    <h4>📱 Inscripciones e Información</h4>
+                    <p><strong>WhatsApp:</strong> +57 315 4567890</p>
+                    <p><strong>Cupos Limitados:</strong> Solo 25 participantes</p>
+                    <a href="https://wa.me/573154567890?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%201:%20En%20bus%20desde%20Tunja%20a%20Paipa" target="_blank" class="btn-inscribirse">
+                        ¡INSCRÍBETE AQUÍ!
+                    </a>
+                </div>
+            </div>
+
+            <!-- RUTA 2: Senderismo Tunja-Paipa -->
+            <div class="ruta-info">
+                <div class="ruta-header">
+                    <h2>RUTA 2: Senderismo Tunja-Paipa</h2>
+                    <h3>"Tras los Pasos de los Lanceros"</h3>
+                    <p class="ruta-fecha"><strong>Fecha:</strong> Domingo 21 de Septiembre de 2025</p>
+                </div>
+                
+                <!-- Imagen específica de la ruta -->
+                <div class="imagen-ruta" style="text-align: center; margin: 1.5rem 0;">
+                    <img src="imagenes/caminante.jpeg" alt="Senderismo y caminata" style="max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="ruta-details">
+                    <div class="detail-item">
+                        <h4>🏁 Punto de Encuentro</h4>
+                        <p>Parque Pinzón, Tunja (Frente al Claustro de San Agustín)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>⏰ Horarios</h4>
+                        <p><strong>Encuentro:</strong> 6:00 A.M. (llegar con 15 min de anticipación)</p>
+                        <p><strong>Salida:</strong> 6:30 A.M. (puntual)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>📊 Información Técnica</h4>
+                        <p><strong>Distancia:</strong> 18-20 Kms. aprox.</p>
+                        <p><strong>Duración:</strong> 6-7 horas</p>
+                        <p><strong>Categoría:</strong> Intermedia-Alta</p>
+                        <p><strong>Clima:</strong> Frío de montaña (10°C - 16°C)</p>
+                    </div>
+                    <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #8e44ad, #9b59b6); color: white; text-align: center; border-radius: 15px; padding: 1.5rem;">
+                        <h4 style="color: white; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$120.000 COP</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Por persona - Incluye todo lo mencionado</p>
+                    </div>
+                </div>
+                <div class="itinerario">
+                    <h4>🗓️ Itinerario Detallado</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="time">06:30 - 07:30 a.m.</span>
+                            <span class="activity">Salida desde Tunja por camino real hacia veredas tradicionales</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">07:30 - 09:00 a.m.</span>
+                            <span class="activity">Ascenso por Alto de La Candelaria - Vistas panorámicas</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">09:00 - 10:30 a.m.</span>
+                            <span class="activity">Descenso hacia zona rural de Paipa</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">10:30 - 11:30 a.m.</span>
+                            <span class="activity">Llegada al Pantano de Vargas - Explicación histórica</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">11:30 - 1:00 p.m.</span>
+                            <span class="activity">Caminata final hacia Paipa centro</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">1:00 - 2:00 p.m.</span>
+                            <span class="activity">Almuerzo de celebración en restaurante típico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inclusiones">
+                    <h4>✅ Incluye</h4>
+                    <ul>
+                        <li>Guianza especializada durante todo el recorrido</li>
+                        <li>Seguro básico de accidentes</li>
+                        <li>Refrigerio de bienvenida</li>
+                        <li>Almuerzo típico boyacense en Paipa</li>
+                        <li>Certificado digital de participación</li>
+                    </ul>
+                    <h4>❌ No Incluye</h4>
+                    <ul>
+                        <li>Transporte de regreso a Tunja</li>
+                        <li>Actividades opcionales en Paipa (termales, spa)</li>
+                        <li>Gastos personales no especificados</li>
+                    </ul>
+                </div>
+                <div class="coordinacion">
+                    <h4>👨‍💼 Coordinación y Guianza</h4>
+                    <p><strong>Organizador y Guía Experto:</strong> JULIÁN ALEXIS PACHÓN MORALES</p>
+                    <p><em>"Conoceremos la historia paso a paso, siguiendo los mismos caminos que recorrieron los valientes lanceros del Pantano de Vargas"</em></p>
+                </div>
+                <div class="contacto-inscripcion">
+                    <h4>📱 Inscripciones e Información</h4>
+                    <p><strong>WhatsApp:</strong> +57 315 6651881</p>
+                    <p><strong>Cupos Limitados:</strong> Solo 15 participantes</p>
+                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%202:%20Senderismo%20Tunja-Paipa" target="_blank" class="btn-inscribirse">
+                        ¡INSCRÍBETE AQUÍ!
+                    </a>
+                </div>
+            </div>
+
             
-            <div class="rutas-grid" id="rutas-container">
-                <!-- Las rutas se cargarán dinámicamente con JavaScript -->
+
+            <!-- RUTA 3: Aventura Cultural -->
+            <div class="ruta-info">
+                <div class="ruta-header">
+                    <h2>RUTA 3: En transporte privado o tour guiado</h2>
+                    <h3>"Experiencia Premium Tunja-Paipa"</h3>
+                    <p class="ruta-fecha"><strong>Fecha:</strong> Domingo 28 de Septiembre de 2025</p>
+                </div>
+                
+                <!-- Imagen específica de la ruta -->
+                <div class="imagen-ruta" style="text-align: center; margin: 1.5rem 0;">
+                    <img src="imagenes/Taxi.jpeg" alt="Transporte en taxi" style="max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="ruta-details">
+                    <div class="detail-item">
+                        <h4>🏁 Punto de Encuentro</h4>
+                        <p>Terminal de Transportes, Tunja</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>⏰ Horarios</h4>
+                        <p><strong>Encuentro:</strong> 6:00 A.M.</p>
+                        <p><strong>Salida:</strong> 6:30 A.M.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>📊 Información Técnica</h4>
+                        <p><strong>Distancia:</strong> 45 Kms. aprox.</p>
+                        <p><strong>Duración:</strong> 10-12 horas</p>
+                        <p><strong>Categoría:</strong> Premium</p>
+                        <p><strong>Clima:</strong> Templado (12°C - 18°C)</p>
+                    </div>
+                    <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #f9a825, #ffc107); color: #333; text-align: center; border-radius: 15px; padding: 1.5rem;">
+                        <h4 style="color: #333; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$150.000 COP</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Por persona - Incluye todo lo mencionado</p>
+                    </div>
+                </div>
+                <div class="itinerario">
+                    <h4>🗓️ Itinerario Detallado</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="time">06:30 - 07:30 a.m.</span>
+                            <span class="activity">Salida en transporte privado desde Tunja hacia Paipa</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">07:30 - 09:00 a.m.</span>
+                            <span class="activity">Llegada VIP a Paipa - Desayuno gourmet</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">09:00 - 11:00 a.m.</span>
+                            <span class="activity">Tour exclusivo del Lago Sochagota con guía especializado</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">11:00 - 13:00 p.m.</span>
+                            <span class="activity">Experiencia premium en Termas de Paipa - Spa y relajación</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">13:00 - 15:00 p.m.</span>
+                            <span class="activity">Almuerzo ejecutivo con vista panorámica</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">15:00 - 17:00 p.m.</span>
+                            <span class="activity">Tour cultural por el centro histórico de Paipa</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">17:00 - 18:30 p.m.</span>
+                            <span class="activity">Regreso cómodo a Tunja en transporte privado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inclusiones">
+                    <h4>✅ Incluye</h4>
+                    <ul>
+                        <li>Transporte privado Tunja-Paipa-Tunja</li>
+                        <li>Desayuno gourmet</li>
+                        <li>Entrada premium a las Termas de Paipa</li>
+                        <li>Almuerzo ejecutivo con vista panorámica</li>
+                        <li>Guía turístico especializado VIP</li>
+                        <li>Seguro de viaje premium</li>
+                        <li>Servicio de spa y relajación</li>
+                    </ul>
+                    <h4>❌ No Incluye</h4>
+                    <ul>
+                        <li>Gastos personales</li>
+                        <li>Servicios adicionales de spa</li>
+                        <li>Propinas</li>
+                    </ul>
+                </div>
+                <div class="coordinacion">
+                    <h4>👨‍💼 Coordinación y Guianza</h4>
+                    <p><strong>Organizador y Guía Experto:</strong> CARLOS ANDRÉS MARTÍNEZ</p>
+                    <p><em>"Experiencia premium para descubrir lo mejor de Paipa"</em></p>
+                </div>
+                <div class="contacto-inscripcion">
+                    <h4>📱 Inscripciones e Información</h4>
+                    <p><strong>WhatsApp:</strong> +57 320 7654321</p>
+                    <p><strong>Cupos Limitados:</strong> Solo 15 participantes</p>
+                    <a href="https://wa.me/573207654321?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%203:%20En%20transporte%20privado%20o%20tour%20guiado" target="_blank" class="btn-inscribirse">
+                        ¡INSCRÍBETE AQUÍ!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Imagen Caminate -->
+            <div class="imagenes-container" style="margin-top: 2rem; text-align: center;">
+                <div class="imagen-lugar">
+                    <img src="imagenes/fcaminate.jpeg" alt="¡Camínate con nosotros!" style="max-width: 100%; height: auto; border-radius: 10px;">
+                    <p style="margin-top: 1rem; font-style: italic; color: #2e8540;">¡Camínate con nosotros por los senderos de Boyacá!</p>
+                </div>
             </div>
         </section>
         
@@ -427,182 +869,31 @@
     </footer>
 
     <script>
-        // Datos de las rutas turísticas
-        const rutas = [
-            {
-                id: 1,
-                nombre: "Ruta 1 - En bus desde Tunja a Paipa",
-                imagen: "imagenes/Bus.jpeg",
-                itinerario: [
-                    "07:30 a.m. Punto de encuentro en la Terminal de Tunja. Registro de pasajeros y recomendaciones de viaje.",
-                    "08:00 a.m. Salida en bus intermunicipal hacia Paipa.",
-                    "09:00 a.m. Llegada a la Terminal de Paipa. Bienvenida y explicación breve sobre el plan del día.",
-                    "09:30 - 11:00 a.m. Visita al Pantano de Vargas - Recorrido guiado por el Monumento a los Lanceros.",
-                    "11:00 - 11:30 a.m. Traslado en taxi hacia la Laguna de Sochagota.",
-                    "11:30 - 1:00 p.m. Recorrido por la Laguna de Sochagota - Paseo en lancha opcional.",
-                    "1:00 - 2:00 p.m. Almuerzo típico boyacense.",
-                    "2:00 - 2:30 p.m. Traslado en taxi hacia los Termales de Paipa.",
-                    "2:30 - 5:00 p.m. Experiencia en los Termales de Paipa.",
-                    "5:00 - 5:30 p.m. Retorno en taxi a la Terminal de Paipa.",
-                    "5:30 p.m. Salida en bus hacia Tunja.",
-                    "6:30 p.m. Llegada a la Terminal de Tunja y fin de la ruta."
-                ],
-                precio: "$95.000",
-                incluye: [
-                    "Transporte Tunja – Paipa – Tunja en bus",
-                    "Traslados internos en taxi",
-                    "Entrada a los Termales de Paipa",
-                    "Almuerzo típico en restaurante local",
-                    "Acompañamiento logístico durante el itinerario"
-                ],
-                noIncluye: [
-                    "Refrigerios adicionales",
-                    "Souvenirs o compras personales",
-                    "Actividades opcionales como masajes o paseo en lancha"
-                ]
-            },
-            {
-                id: 2,
-                nombre: "Ruta 2 - En carro particular (Tunja – Paipa)",
-                imagen: "imagenes/Particular.jpeg",
-                itinerario: [
-                    "07:30 a.m. Salida en vehículo particular desde Tunja por la vía Panamericana.",
-                    "08:30 a.m. Llegada a Paipa. Parqueo del vehículo en el centro de la ciudad.",
-                    "09:00 - 11:00 a.m. Visita al Pantano de Vargas - Recorrido guiado.",
-                    "11:00 - 11:30 a.m. Traslado en carro hacia la Laguna de Sochagota.",
-                    "11:30 - 1:00 p.m. Laguna de Sochagota - Caminata ecológica.",
-                    "1:00 - 2:00 p.m. Almuerzo típico boyacense en un restaurante campestre.",
-                    "2:00 - 2:15 p.m. Traslado en carro hacia los Termales de Paipa.",
-                    "2:30 - 5:00 p.m. Experiencia en los Termales de Paipa.",
-                    "5:00 - 5:30 p.m. Retorno en carro al centro de Paipa.",
-                    "5:30 - 6:30 p.m. Tiempo libre para recorrer el parque principal de Paipa.",
-                    "6:30 - 7:30 p.m. Regreso en carro hacia Tunja.",
-                    "7:30 p.m. Llegada a Tunja y fin del recorrido."
-                ],
-                precio: "$80.000 (aprox.)",
-                incluye: [
-                    "Gasolina ida y vuelta (dividida entre pasajeros)",
-                    "Parqueaderos en Paipa",
-                    "Entrada a los Termales de Paipa",
-                    "Almuerzo típico en restaurante local"
-                ],
-                noIncluye: [
-                    "Actividades opcionales (paseo en lancha, spa, masajes)",
-                    "Souvenirs, artesanías o compras adicionales",
-                    "Seguro del vehículo"
-                ]
-            },
-            {
-                id: 3,
-                nombre: "Ruta 3 - En transporte privado o tour guiado",
-                imagen: "imagenes/Taxi.jpeg",
-                itinerario: [
-                    "07:30 a.m. Reunión en punto de encuentro en Tunja. Bienvenida del guía turístico.",
-                    "08:00 a.m. Salida en transporte privado (van turística o buseta).",
-                    "08:50 a.m. Llegada a Paipa. Breve pausa para fotos panorámicas.",
-                    "09:00 - 11:00 a.m. Visita guiada al Pantano de Vargas.",
-                    "11:00 - 11:20 a.m. Traslado en transporte privado hacia la Laguna de Sochagota.",
-                    "11:30 - 1:00 p.m. Laguna de Sochagota - Recorrido guiado.",
-                    "1:00 - 2:00 p.m. Almuerzo típico boyacense incluido en restaurante local.",
-                    "2:00 - 2:15 p.m. Traslado en transporte privado a los Termales de Paipa.",
-                    "2:30 - 5:00 p.m. Experiencia de bienestar en Termales de Paipa.",
-                    "5:00 - 5:30 p.m. Retorno en transporte privado hacia el centro de Paipa.",
-                    "5:30 - 6:00 p.m. Paseo corto por el parque principal de Paipa.",
-                    "6:00 - 7:00 p.m. Regreso en transporte privado a Tunja.",
-                    "7:00 p.m. Llegada a Tunja y cierre del tour."
-                ],
-                precio: "$150.000 (aprox.)",
-                incluye: [
-                    "Transporte privado Tunja – Paipa – Tunja",
-                    "Traslados internos a cada atractivo",
-                    "Guía turístico durante todo el recorrido",
-                    "Entrada a los Termales de Paipa",
-                    "Almuerzo típico en restaurante local",
-                    "Seguro de viaje"
-                ],
-                noIncluye: [
-                    "Actividades opcionales (lancha, masajes, spa)",
-                    "Souvenirs o compras personales"
-                ]
-            }
-        ];
-
-        // Cargar rutas en la sección correspondiente
-        document.addEventListener('DOMContentLoaded', function() {
-            const rutasContainer = document.getElementById('rutas-container');
-            
-            rutas.forEach(ruta => {
-                const card = document.createElement('div');
-                card.className = 'ruta-card';
-                card.innerHTML = `
-                    <div class="ruta-image">
-                        <img src="${ruta.imagen}" alt="${ruta.nombre}">
-                    </div>
-                    <h3>${ruta.nombre}</h3>
-                    <div class="precio">${ruta.precio} por persona</div>
-                    
-                    <h4>Itinerario:</h4>
-                    <ul>
-                        ${ruta.itinerario.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                    
-                    <h4>Incluye:</h4>
-                    <ul class="incluye-list">
-                        ${ruta.incluye.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                    
-                    <h4>No incluye:</h4>
-                    <ul class="no-incluye-list">
-                        ${ruta.noIncluye.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                    
-                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20la%20${encodeURIComponent(ruta.nombre)}" target="_blank" class="whatsapp-btn">
-                        Reservar esta ruta
-                    </a>
-                `;
-                
-                rutasContainer.appendChild(card);
-            });
-            
-            // Cargar imágenes de ejemplo (puedes reemplazar estas URLs con las tuyas)
-            cargarImagenesEjemplo();
-        });
-
         // Navegación entre secciones
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remover clase active de todos los links
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                // Agregar clase active al link clickeado
-                this.classList.add('active');
-                
-                // Ocultar todas las secciones
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remover clase active de todos los enlaces
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    // Agregar clase active al enlace clickeado
+                    this.classList.add('active');
+                    
+                    // Ocultar todas las secciones
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Mostrar la sección correspondiente
+                    const targetSection = document.getElementById(this.dataset.section);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
                 });
-                
-                // Mostrar la sección correspondiente
-                const sectionId = this.getAttribute('data-section');
-                document.getElementById(sectionId).classList.add('active');
             });
         });
-
-        // Función para cargar imágenes de ejemplo (reemplaza con tus propias imágenes)
-        function cargarImagenesEjemplo() {
-            // Estas son URLs de ejemplo - reemplázalas con tus propias imágenes
-            const imagenes = {
-                tunja: "https://example.com/tunja.jpg",
-                paipa: "https://example.com/paipa.jpg",
-                ruta1: "https://example.com/ruta-bus.jpg",
-                ruta2: "https://example.com/ruta-carro.jpg",
-                ruta3: "https://example.com/ruta-privada.jpg"
-            };
-            
-            // Aquí puedes implementar la carga real de imágenes cuando las tengas
-            console.log("Cargar imágenes desde:", imagenes);
-        }
     </script>
 </body>
 </html>
