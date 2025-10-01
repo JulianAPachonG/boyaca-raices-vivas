@@ -32,6 +32,7 @@
             padding: 1rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
         .logo-container {
@@ -70,6 +71,9 @@
         nav {
             background-color: var(--color-secondary);
             padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .nav-list {
@@ -94,6 +98,33 @@
         
         .nav-list a:hover, .nav-list a.active {
             background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         
         main {
@@ -128,7 +159,7 @@
             margin: 1.5rem 0 1rem;
         }
         
-        .empresa-info, .ruta-card, .form-container, .contacto-info {
+        .empresa-info, .ruta-card, .form-container, .contacto-info, .boyaca-info {
             background-color: white;
             border-radius: 8px;
             padding: 1.5rem;
@@ -290,12 +321,13 @@
             margin-top: 3rem;
         }
 
-        /* --- CSS ADICIONAL PARA LA NUEVA RUTA 2 (Senderismo Tunja-Paipa) --- */
+        /* --- CSS ADICIONAL PARA LAS RUTAS --- */
         .ruta-info {
             background: white;
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
         }
 
         .ruta-header {
@@ -408,6 +440,91 @@
             background: #e69500;
             transform: translateY(-2px);
         }
+
+        /* --- CSS PARA LA SECCIÓN ASÍ ES BOYACÁ --- */
+        .boyaca-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .boyaca-image-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #2e8540, #1e5c2a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .boyaca-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .boyaca-section h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .boyaca-call-to-action {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary), #4caf50);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .boyaca-call-to-action h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .btn-explorar {
+            background: #f9a825;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-explorar:hover {
+            background: #e69500;
+            transform: translateY(-2px);
+        }
+
+        /* --- ESTILOS PARA LOS OBJETIVOS --- */
+        .objetivos-lista {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .objetivos-lista li {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .objetivo-titulo {
+            color: var(--color-primary);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
         
         @media (max-width: 768px) {
             .rutas-grid {
@@ -444,6 +561,21 @@
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
             }
+            
+            .language-selector {
+                position: static;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+
+            .boyaca-image-placeholder {
+                height: 200px;
+                font-size: 1rem;
+            }
+
+            .boyaca-section {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -452,17 +584,23 @@
         <div class="logo-container">
             <div class="logo"><img src="imagenes/logo.svg" alt="Logo BRV" style="width: 60px; height: 60px;"></div>
             <div>
-                <h1>Boyacá Raíces Vivas</h1>
-                <p class="slogan">"Descubre el Corazón de Colombia."</p>
+                <h1 data-es="Boyacá Raíces Vivas" data-en="Boyacá Living Roots">Boyacá Raíces Vivas</h1>
+                <p class="slogan" data-es='"Descubre el Corazón de Colombia."' data-en='"Discover the Heart of Colombia."'>"Descubre el Corazón de Colombia."</p>
             </div>
+        </div>
+        
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
         </div>
         
         <nav>
             <ul class="nav-list">
-                <li><a href="#empresa" class="nav-link active" data-section="empresa">Nuestra Empresa</a></li>
-                <li><a href="#rutas" class="nav-link" data-section="rutas">Rutas Turísticas</a></li>
-                <li><a href="#encuesta" class="nav-link" data-section="encuesta">Encuesta</a></li>
-                <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
+                <li><a href="#empresa" class="nav-link active" data-section="empresa" data-es="Nuestra Empresa" data-en="Our Company">Nuestra Empresa</a></li>
+                <li><a href="#boyaca" class="nav-link" data-section="boyaca" data-es="Así es Boyacá" data-en="This is Boyacá">Así es Boyacá</a></li>
+                <li><a href="#rutas" class="nav-link" data-section="rutas" data-es="Rutas Turísticas" data-en="Tour Routes">Rutas Turísticas</a></li>
+                <li><a href="#encuesta" class="nav-link" data-section="encuesta" data-es="Encuesta" data-en="Survey">Encuesta</a></li>
+                <li><a href="#contacto" class="nav-link" data-section="contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -470,29 +608,93 @@
     <main>
         <!-- Sección de Información de la Empresa -->
         <section id="empresa" class="section active">
-            <h2>Nuestra Empresa</h2>
+            <h2 data-es="Nuestra Empresa" data-en="Our Company">Nuestra Empresa</h2>
             
             <div class="empresa-info">
-                <h3>Visión</h3>
-                <p>"Ser la empresa líder y referente en el turismo sostenible y experiencial de Boyacá, reconocida por ofrecer rutas innovadoras y auténticas que conectan a los viajeros con la riqueza cultural, natural e histórica de la región, impulsando el desarrollo local y dejando una huella positiva en cada destino."</p>
+                <h3 data-es="Visión" data-en="Vision">Visión</h3>
+                <p data-es='"Ser la empresa líder y referente en el turismo sostenible y experiencial de Boyacá, reconocida por ofrecer rutas innovadoras y auténticas que conectan a los viajeros con la riqueza cultural, natural e histórica de la región, impulsando el desarrollo local y dejando una huella positiva en cada destino."' data-en='"To be the leading and reference company in sustainable and experiential tourism in Boyacá, recognized for offering innovative and authentic routes that connect travelers with the cultural, natural, and historical wealth of the region, promoting local development and leaving a positive footprint in each destination."'>"Ser la empresa líder y referente en el turismo sostenible y experiencial de Boyacá, reconocida por ofrecer rutas innovadoras y auténticas que conectan a los viajeros con la riqueza cultural, natural e histórica de la región, impulsando el desarrollo local y dejando una huella positiva en cada destino."</p>
                 
-                <h3>Misión</h3>
-                <p>"Diseñar y operar experiencias turísticas memorables en Boyacá, brindando servicios de alta calidad, seguridad y personalización. Nos comprometemos a mostrar la belleza oculta y los tesoros conocidos del departamento, promoviendo el respeto por el medio ambiente, la cultura local y la interacción genuina con las comunidades, para que cada viajero se lleve un pedazo de Boyacá en su corazón."</p>
+                <h3 data-es="Misión" data-en="Mission">Misión</h3>
+                <p data-es='"Diseñar y operar experiencias turísticas memorables en Boyacá, brindando servicios de alta calidad, seguridad y personalización. Nos comprometemos a mostrar la belleza oculta y los tesoros conocidos del departamento, promoviendo el respeto por el medio ambiente, la cultura local y la interacción genuina con las comunidades, para que cada viajero se lleve un pedazo de Boyacá en su corazón."' data-en='"Design and operate memorable tourist experiences in Boyacá, providing high-quality, safe, and personalized services. We are committed to showing the hidden beauty and known treasures of the department, promoting respect for the environment, local culture, and genuine interaction with communities, so that every traveler takes a piece of Boyacá in their heart."'>"Diseñar y operar experiencias turísticas memorables en Boyacá, brindando servicios de alta calidad, seguridad y personalización. Nos comprometemos a mostrar la belleza oculta y los tesoros conocidos del departamento, promoviendo el respeto por el medio ambiente, la cultura local y la interacción genuina con las comunidades, para que cada viajero se lleve un pedazo de Boyacá en su corazón."</p>
                 
-                <h3>Objetivos Generales de la Empresa</h3>
-                <ul>
-                    <li><strong>Posicionamiento:</strong> Establecer la marca "Boyacá Raíces Vivas" como la principal opción para tours de calidad y experiencias únicas en el departamento.</li>
-                    <li><strong>Satisfacción del Cliente:</strong> Garantizar la más alta satisfacción mediante una planificación meticulosa, guías expertos y un servicio al cliente excepcional que supere las expectativas.</li>
-                    <li><strong>Sostenibilidad:</strong> Operar bajo principios de turismo responsable que generen impacto positivo, apoyen a los emprendimientos locales y contribuyan a la conservación del patrimonio natural y cultural.</li>
-                    <li><strong>Innovación:</strong> Investigar y desarrollar constantemente nuevas rutas, actividades y paquetes que se adapten a las tendencias del mercado y los intereses diversos de los viajeros modernos.</li>
-                    <li><strong>Visibilidad Digital:</strong> Construir y mantener una presencia online sólida, intuitiva y atractiva a través de nuestra página web y redes sociales, que sirva como la principal herramienta de inspiración y reserva para nuestros clientes.</li>
+                <h3 data-es="Objetivos Generales de la Empresa" data-en="Company General Objectives">Objetivos Generales de la Empresa</h3>
+                
+                <ul class="objetivos-lista">
+                    <li>
+                        <span class="objetivo-titulo" data-es="Posicionamiento:" data-en="Positioning:">Posicionamiento:</span>
+                        <span data-es="Establecer la marca 'Boyacá Raíces Vivas' como la principal opción para tours de calidad y experiencias únicas en el departamento." data-en="Establish the 'Boyacá Living Roots' brand as the main option for quality tours and unique experiences in the department.">Establecer la marca "Boyacá Raíces Vivas" como la principal opción para tours de calidad y experiencias únicas en el departamento.</span>
+                    </li>
+                    <li>
+                        <span class="objetivo-titulo" data-es="Satisfacción del Cliente:" data-en="Customer Satisfaction:">Satisfacción del Cliente:</span>
+                        <span data-es="Garantizar la más alta satisfacción mediante una planificación meticulosa, guías expertos y un servicio al cliente excepcional que supere las expectativas." data-en="Guarantee the highest satisfaction through meticulous planning, expert guides, and exceptional customer service that exceeds expectations.">Garantizar la más alta satisfacción mediante una planificación meticulosa, guías expertos y un servicio al cliente excepcional que supere las expectativas.</span>
+                    </li>
+                    <li>
+                        <span class="objetivo-titulo" data-es="Sostenibilidad:" data-en="Sustainability:">Sostenibilidad:</span>
+                        <span data-es="Operar bajo principios de turismo responsable que generen impacto positivo, apoyen a los emprendimientos locales y contribuyan a la conservación del patrimonio natural y cultural." data-en="Operate under responsible tourism principles that generate positive impact, support local entrepreneurship, and contribute to the conservation of natural and cultural heritage.">Operar bajo principios de turismo responsable que generen impacto positivo, apoyen a los emprendimientos locales y contribuyan a la conservación del patrimonio natural y cultural.</span>
+                    </li>
+                    <li>
+                        <span class="objetivo-titulo" data-es="Innovación:" data-en="Innovation:">Innovación:</span>
+                        <span data-es="Investigar y desarrollar constantemente nuevas rutas, actividades y paquetes que se adapten a las tendencias del mercado y los intereses diversos de los viajeros modernos." data-en="Constantly research and develop new routes, activities, and packages that adapt to market trends and the diverse interests of modern travelers.">Investigar y desarrollar constantemente nuevas rutas, actividades y paquetes que se adapten a las tendencias del mercado y los intereses diversos de los viajeros modernos.</span>
+                    </li>
+                    <li>
+                        <span class="objetivo-titulo" data-es="Visibilidad Digital:" data-en="Digital Visibility:">Visibilidad Digital:</span>
+                        <span data-es="Construir y mantener una presencia online sólida, intuitiva y atractiva a través de nuestra página web y redes sociales, que sirva como la principal herramienta de inspiración y reserva para nuestros clientes." data-en="Build and maintain a solid, intuitive, and attractive online presence through our website and social media, serving as the main tool for inspiration and booking for our customers.">Construir y mantener una presencia online sólida, intuitiva y atractiva a través de nuestra página web y redes sociales, que sirva como la principal herramienta de inspiración y reserva para nuestros clientes.</span>
+                    </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- Sección Así es Boyacá -->
+        <section id="boyaca" class="section">
+            <h2 data-es="Así es Boyacá: El Corazón de Colombia" data-en="This is Boyacá: The Heart of Colombia">Así es Boyacá: El Corazón de Colombia</h2>
+            
+            <div class="boyaca-info">
+                <div class="boyaca-hero">
+                    <div class="boyaca-image-real" style="height: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <img src="imagenes/paisajes_boyacenses.png" 
+                             alt="Paisajes de Boyacá - Tierras de Libertad y Belleza" 
+                             style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+                <div class="boyaca-content">
+                    <div class="boyaca-section">
+                        <h3>🏔️ <span data-es="Tierra de Libertad y Belleza" data-en="Land of Freedom and Beauty">Tierra de Libertad y Belleza</span></h3>
+                        <p data-es="Boyacá, cuna de la independencia colombiana, es un departamento que enamora con sus paisajes andinos, su rica historia y la calidez de su gente. Desde los majestuosos páramos hasta los valles fértiles, cada rincón cuenta una historia de libertad, tradición y progreso." data-en="Boyacá, cradle of Colombian independence, is a department that captivates with its Andean landscapes, rich history, and the warmth of its people. From the majestic páramos to the fertile valleys, every corner tells a story of freedom, tradition, and progress.">Boyacá, cuna de la independencia colombiana, es un departamento que enamora con sus paisajes andinos, su rica historia y la calidez de su gente. Desde los majestuosos páramos hasta los valles fértiles, cada rincón cuenta una historia de libertad, tradición y progreso.</p>
+                    </div>
+
+                    <div class="boyaca-section">
+                        <h3>🎭 <span data-es="Cultura Viva y Tradición" data-en="Living Culture and Tradition">Cultura Viva y Tradición</span></h3>
+                        <p data-es="Nuestro territorio conserva vivas las tradiciones ancestrales de los Muiscas, combinadas con la herencia colonial española. En cada pueblo encontrarás artesanías únicas, gastronomía auténtica y festividades que celebran nuestra identidad boyacense." data-en="Our territory preserves the ancestral traditions of the Muiscas, combined with Spanish colonial heritage. In every town you will find unique crafts, authentic gastronomy, and festivities that celebrate our Boyacense identity.">Nuestro territorio conserva vivas las tradiciones ancestrales de los Muiscas, combinadas con la herencia colonial española. En cada pueblo encontrarás artesanías únicas, gastronomía auténtica y festividades que celebran nuestra identidad boyacense.</p>
+                    </div>
+
+                    <div class="boyaca-section">
+                        <h3>🌿 <span data-es="Paraíso Natural" data-en="Natural Paradise">Paraíso Natural</span></h3>
+                        <p data-es="Con más de 15 páramos que alimentan ríos y quebradas, Boyacá es una potencia hídrica natural. Disfruta de lagunas cristalinas, bosques de niebla y una biodiversidad única que te invita a conectar con la naturaleza en su estado más puro." data-en="With more than 15 páramos that feed rivers and streams, Boyacá is a natural water powerhouse. Enjoy crystal-clear lagoons, cloud forests, and unique biodiversity that invites you to connect with nature in its purest state.">Con más de 15 páramos que alimentan ríos y quebradas, Boyacá es una potencia hídrica natural. Disfruta de lagunas cristalinas, bosques de niebla y una biodiversidad única que te invita a conectar con la naturaleza en su estado más puro.</p>
+                    </div>
+
+                    <div class="boyaca-section">
+                        <h3>🍽️ <span data-es="Sabores que Enamoran" data-en="Flavors that Captivate">Sabores que Enamoran</span></h3>
+                        <p data-es="La cocina boyacense es un viaje sensorial: desde la trucha fresca de nuestros ríos hasta el cuchuco de trigo, pasando por los productos lácteos de mejor calidad y las frutas únicas de nuestro territorio. Cada plato cuenta la historia de nuestra tierra." data-en="Boyacense cuisine is a sensory journey: from the fresh trout of our rivers to wheat cuchuco, through the highest quality dairy products and unique fruits of our territory. Every dish tells the story of our land.">La cocina boyacense es un viaje sensorial: desde la trucha fresca de nuestros ríos hasta el cuchuco de trigo, pasando por los productos lácteos de mejor calidad y las frutas únicas de nuestro territorio. Cada plato cuenta la historia de nuestra tierra.</p>
+                    </div>
+
+                    <div class="boyaca-section">
+                        <h3>📜 <span data-es="Historia que Late" data-en="Living History">Historia que Late</span></h3>
+                        <p data-es="En Boyacá respirarás historia en cada paso. El Puente de Boyacá, el Pantano de Vargas, las casonas coloniales de Tunja y Villa de Leyva... son testigos silenciosos de la gesta libertadora que cambió el destino de toda una nación." data-en="In Boyacá you will breathe history at every step. The Boyacá Bridge, the Vargas Swamp, the colonial houses of Tunja and Villa de Leyva... are silent witnesses of the liberating feat that changed the destiny of an entire nation.">En Boyacá respirarás historia en cada paso. El Puente de Boyacá, el Pantano de Vargas, las casonas coloniales de Tunja y Villa de Leyva... son testigos silenciosos de la gesta libertadora que cambió el destino de toda una nación.</p>
+                    </div>
+
+                    <div class="boyaca-call-to-action">
+                        <h3 data-es="¡Ven y Descubre el Encanto Boyacense!" data-en="Come and Discover the Boyacense Charm!">¡Ven y Descubre el Encanto Boyacense!</h3>
+                        <p data-es="Te invitamos a vivir experiencias únicas que quedarán para siempre en tu memoria. Boyacá te espera con los brazos abiertos para ofrecerte aventura, descanso, cultura y los paisajes más fotogénicos de Colombia." data-en="We invite you to live unique experiences that will remain in your memory forever. Boyacá awaits you with open arms to offer you adventure, relaxation, culture, and the most photogenic landscapes in Colombia.">Te invitamos a vivir experiencias únicas que quedarán para siempre en tu memoria. Boyacá te espera con los brazos abiertos para ofrecerte aventura, descanso, cultura y los paisajes más fotogénicos de Colombia.</p>
+                        <button class="btn-explorar" onclick="mostrarSeccion('rutas')" data-es="Explorar Rutas Turísticas" data-en="Explore Tour Routes">Explorar Rutas Turísticas</button>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Sección de Rutas Turísticas -->
         <section id="rutas" class="section">
-            <h2>Rutas Turísticas por Boyacá</h2>
+            <h2 data-es="Rutas Turísticas por Boyacá" data-en="Tour Routes in Boyacá">Rutas Turísticas por Boyacá</h2>
             
             <!-- Mapa de la ruta -->
             <div class="mapa-container">
@@ -512,9 +714,9 @@
             <!-- RUTA 1: En bus desde Tunja a Paipa -->
             <div class="ruta-info">
                 <div class="ruta-header">
-                    <h2>RUTA 1: En bus desde Tunja a Paipa</h2>
-                    <h3>"Descubre las Raíces Vivas de Boyacá"</h3>
-                    <p class="ruta-fecha"><strong>Fecha:</strong> Sábado 26 de Septiembre de 2025</p>
+                    <h2 data-es="RUTA 1: En bus desde Tunja a Paipa" data-en="ROUTE 1: By bus from Tunja to Paipa">RUTA 1: En bus desde Tunja a Paipa</h2>
+                    <h3 data-es='"Descubre las Raíces Vivas de Boyacá"' data-en='"Discover the Living Roots of Boyacá"'>"Descubre las Raíces Vivas de Boyacá"</h3>
+                    <p class="ruta-fecha"><strong data-es="Fecha:" data-en="Date:">Fecha:</strong> <span data-es="Sábado 26 de Septiembre de 2025" data-en="Saturday, September 26, 2025">Sábado 26 de Septiembre de 2025</span></p>
                 </div>
                 
                 <!-- Imagen específica de la ruta -->
@@ -524,87 +726,87 @@
                 
                 <div class="ruta-details">
                     <div class="detail-item">
-                        <h4>🏁 Punto de Encuentro</h4>
-                        <p>Terminal de Transportes, Tunja</p>
+                        <h4>🏁 <span data-es="Punto de Encuentro" data-en="Meeting Point">Punto de Encuentro</span></h4>
+                        <p data-es="Terminal de Transportes, Tunja" data-en="Transport Terminal, Tunja">Terminal de Transportes, Tunja</p>
                     </div>
                     <div class="detail-item">
-                        <h4>⏰ Horarios</h4>
-                        <p><strong>Encuentro:</strong> 6:00 A.M.</p>
-                        <p><strong>Salida:</strong> 6:30 A.M.</p>
+                        <h4>⏰ <span data-es="Horarios" data-en="Schedule">Horarios</span></h4>
+                        <p><strong data-es="Encuentro:" data-en="Meeting:">Encuentro:</strong> 6:00 A.M.</p>
+                        <p><strong data-es="Salida:" data-en="Departure:">Salida:</strong> 6:30 A.M.</p>
                     </div>
                     <div class="detail-item">
-                        <h4>📊 Información Técnica</h4>
-                        <p><strong>Distancia:</strong> 45 Kms. aprox.</p>
-                        <p><strong>Duración:</strong> 8-10 horas</p>
-                        <p><strong>Categoría:</strong> Fácil</p>
-                        <p><strong>Clima:</strong> Templado (12°C - 18°C)</p>
+                        <h4>📊 <span data-es="Información Técnica" data-en="Technical Information">Información Técnica</span></h4>
+                        <p><strong data-es="Distancia:" data-en="Distance:">Distancia:</strong> 45 Kms. aprox.</p>
+                        <p><strong data-es="Duración:" data-en="Duration:">Duración:</strong> 8-10 <span data-es="horas" data-en="hours">horas</span></p>
+                        <p><strong data-es="Categoría:" data-en="Category:">Categoría:</strong> <span data-es="Fácil" data-en="Easy">Fácil</span></p>
+                        <p><strong data-es="Clima:" data-en="Weather:">Clima:</strong> <span data-es="Templado (12°C - 18°C)" data-en="Temperate (12°C - 18°C)">Templado (12°C - 18°C)</span></p>
                     </div>
                     <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #2e8540, #4caf50); color: white; text-align: center; border-radius: 15px; padding: 1.5rem;">
-                        <h4 style="color: white; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <h4 style="color: white; font-size: 1.5rem;">💰 <span data-es="PRECIO ESPECIAL" data-en="SPECIAL PRICE">PRECIO ESPECIAL</span></h4>
                         <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$85.000 COP</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Por persona - Incluye todo lo mencionado</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;" data-es="Por persona - Incluye todo lo mencionado" data-en="Per person - Includes everything mentioned">Por persona - Incluye todo lo mencionado</p>
                     </div>
                 </div>
                 <div class="itinerario">
-                    <h4>🗓️ Itinerario Detallado</h4>
+                    <h4>🗓️ <span data-es="Itinerario Detallado" data-en="Detailed Itinerary">Itinerario Detallado</span></h4>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="time">06:30 - 07:30 a.m.</span>
-                            <span class="activity">Salida en bus desde Tunja hacia Paipa</span>
+                            <span class="activity" data-es="Salida en bus desde Tunja hacia Paipa" data-en="Bus departure from Tunja to Paipa">Salida en bus desde Tunja hacia Paipa</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">07:30 - 09:00 a.m.</span>
-                            <span class="activity">Llegada a Paipa - Desayuno típico boyacense</span>
+                            <span class="activity" data-es="Llegada a Paipa - Desayuno típico boyacense" data-en="Arrival in Paipa - Typical Boyacense breakfast">Llegada a Paipa - Desayuno típico boyacense</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">09:00 - 11:00 a.m.</span>
-                            <span class="activity">Visita al Lago Sochagota - Actividades acuáticas</span>
+                            <span class="activity" data-es="Visita al Lago Sochagota - Actividades acuáticas" data-en="Visit to Lake Sochagota - Water activities">Visita al Lago Sochagota - Actividades acuáticas</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">11:00 - 12:30 p.m.</span>
-                            <span class="activity">Termas de Paipa - Relajación y bienestar</span>
+                            <span class="activity" data-es="Termas de Paipa - Relajación y bienestar" data-en="Paipa Hot Springs - Relaxation and wellness">Termas de Paipa - Relajación y bienestar</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">12:30 - 2:00 p.m.</span>
-                            <span class="activity">Almuerzo tradicional boyacense</span>
+                            <span class="activity" data-es="Almuerzo tradicional boyacense" data-en="Traditional Boyacense lunch">Almuerzo tradicional boyacense</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">2:00 - 4:00 p.m.</span>
-                            <span class="activity">Recorrido por el centro histórico de Paipa</span>
+                            <span class="activity" data-es="Recorrido por el centro histórico de Paipa" data-en="Tour of Paipa's historic center">Recorrido por el centro histórico de Paipa</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">4:00 - 5:00 p.m.</span>
-                            <span class="activity">Regreso a Tunja</span>
+                            <span class="activity" data-es="Regreso a Tunja" data-en="Return to Tunja">Regreso a Tunja</span>
                         </div>
                     </div>
                 </div>
                 <div class="inclusiones">
-                    <h4>✅ Incluye</h4>
+                    <h4>✅ <span data-es="Incluye" data-en="Includes">Incluye</span></h4>
                     <ul>
-                        <li>Transporte en bus Tunja-Paipa-Tunja</li>
-                        <li>Desayuno típico boyacense</li>
-                        <li>Entrada a las Termas de Paipa</li>
-                        <li>Almuerzo tradicional boyacense</li>
-                        <li>Guía turístico especializado</li>
-                        <li>Seguro de accidentes</li>
+                        <li data-es="Transporte en bus Tunja-Paipa-Tunja" data-en="Bus transportation Tunja-Paipa-Tunja">Transporte en bus Tunja-Paipa-Tunja</li>
+                        <li data-es="Desayuno típico boyacense" data-en="Typical Boyacense breakfast">Desayuno típico boyacense</li>
+                        <li data-es="Entrada a las Termas de Paipa" data-en="Entrance to Paipa Hot Springs">Entrada a las Termas de Paipa</li>
+                        <li data-es="Almuerzo tradicional boyacense" data-en="Traditional Boyacense lunch">Almuerzo tradicional boyacense</li>
+                        <li data-es="Guía turístico especializado" data-en="Specialized tourist guide">Guía turístico especializado</li>
+                        <li data-es="Seguro de accidentes" data-en="Accident insurance">Seguro de accidentes</li>
                     </ul>
-                    <h4>❌ No Incluye</h4>
+                    <h4>❌ <span data-es="No Incluye" data-en="Not Included">No Incluye</span></h4>
                     <ul>
-                        <li>Gastos personales</li>
-                        <li>Actividades adicionales no mencionadas</li>
-                        <li>Propinas</li>
+                        <li data-es="Gastos personales" data-en="Personal expenses">Gastos personales</li>
+                        <li data-es="Actividades adicionales no mencionadas" data-en="Additional activities not mentioned">Actividades adicionales no mencionadas</li>
+                        <li data-es="Propinas" data-en="Tips">Propinas</li>
                     </ul>
                 </div>
                 <div class="coordinacion">
-                    <h4>👨‍💼 Coordinación y Guianza</h4>
-                    <p><strong>Organizador y Guía Experto:</strong> MARÍA ELENA RODRÍGUEZ</p>
-                    <p><em>"Descubre la magia de Paipa y sus aguas termales"</em></p>
+                    <h4>👨‍💼 <span data-es="Coordinación y Guianza" data-en="Coordination and Guidance">Coordinación y Guianza</span></h4>
+                    <p><strong data-es="Organizador y Guía Experto:" data-en="Organizer and Expert Guide:">Organizador y Guía Experto:</strong> MARÍA ELENA RODRÍGUEZ</p>
+                    <p><em data-es='"Descubre la magia de Paipa y sus aguas termales"' data-en='"Discover the magic of Paipa and its hot springs"'>"Descubre la magia de Paipa y sus aguas termales"</em></p>
                 </div>
                 <div class="contacto-inscripcion">
-                    <h4>📱 Inscripciones e Información</h4>
+                    <h4>📱 <span data-es="Inscripciones e Información" data-en="Registration and Information">Inscripciones e Información</span></h4>
                     <p><strong>WhatsApp:</strong> +57 315 4567890</p>
-                    <p><strong>Cupos Limitados:</strong> Solo 25 participantes</p>
-                    <a href="https://wa.me/573154567890?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%201:%20En%20bus%20desde%20Tunja%20a%20Paipa" target="_blank" class="btn-inscribirse">
+                    <p><strong data-es="Cupos Limitados:" data-en="Limited Spots:">Cupos Limitados:</strong> <span data-es="Solo 25 participantes" data-en="Only 25 participants">Solo 25 participantes</span></p>
+                    <a href="https://wa.me/573154567890?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%201:%20En%20bus%20desde%20Tunja%20a%20Paipa" target="_blank" class="btn-inscribirse" data-es="¡INSCRÍBETE AQUÍ!" data-en="REGISTER HERE!">
                         ¡INSCRÍBETE AQUÍ!
                     </a>
                 </div>
@@ -613,9 +815,9 @@
             <!-- RUTA 2: Senderismo Tunja-Paipa -->
             <div class="ruta-info">
                 <div class="ruta-header">
-                    <h2>RUTA 2: Senderismo Tunja-Paipa</h2>
-                    <h3>"Tras los Pasos de los Lanceros"</h3>
-                    <p class="ruta-fecha"><strong>Fecha:</strong> Domingo 21 de Septiembre de 2025</p>
+                    <h2 data-es="RUTA 2: Senderismo Tunja-Paipa" data-en="ROUTE 2: Hiking Tunja-Paipa">RUTA 2: Senderismo Tunja-Paipa</h2>
+                    <h3 data-es='"Tras los Pasos de los Lanceros"' data-en='"Following the Steps of the Lancers"'>"Tras los Pasos de los Lanceros"</h3>
+                    <p class="ruta-fecha"><strong data-es="Fecha:" data-en="Date:">Fecha:</strong> <span data-es="Domingo 21 de Septiembre de 2025" data-en="Sunday, September 21, 2025">Domingo 21 de Septiembre de 2025</span></p>
                 </div>
                 
                 <!-- Imagen específica de la ruta -->
@@ -625,95 +827,93 @@
                 
                 <div class="ruta-details">
                     <div class="detail-item">
-                        <h4>🏁 Punto de Encuentro</h4>
-                        <p>Parque Pinzón, Tunja (Frente al Claustro de San Agustín)</p>
+                        <h4>🏁 <span data-es="Punto de Encuentro" data-en="Meeting Point">Punto de Encuentro</span></h4>
+                        <p data-es="Parque Pinzón, Tunja (Frente al Claustro de San Agustín)" data-en="Pinzón Park, Tunja (In front of the San Agustín Cloister)">Parque Pinzón, Tunja (Frente al Claustro de San Agustín)</p>
                     </div>
                     <div class="detail-item">
-                        <h4>⏰ Horarios</h4>
-                        <p><strong>Encuentro:</strong> 6:00 A.M. (llegar con 15 min de anticipación)</p>
-                        <p><strong>Salida:</strong> 6:30 A.M. (puntual)</p>
+                        <h4>⏰ <span data-es="Horarios" data-en="Schedule">Horarios</span></h4>
+                        <p><strong data-es="Encuentro:" data-en="Meeting:">Encuentro:</strong> <span data-es="6:00 A.M. (llegar con 15 min de anticipación)" data-en="6:00 A.M. (arrive 15 min early)">6:00 A.M. (llegar con 15 min de anticipación)</span></p>
+                        <p><strong data-es="Salida:" data-en="Departure:">Salida:</strong> 6:30 A.M. (puntual)</p>
                     </div>
                     <div class="detail-item">
-                        <h4>📊 Información Técnica</h4>
-                        <p><strong>Distancia:</strong> 18-20 Kms. aprox.</p>
-                        <p><strong>Duración:</strong> 6-7 horas</p>
-                        <p><strong>Categoría:</strong> Intermedia-Alta</p>
-                        <p><strong>Clima:</strong> Frío de montaña (10°C - 16°C)</p>
+                        <h4>📊 <span data-es="Información Técnica" data-en="Technical Information">Información Técnica</span></h4>
+                        <p><strong data-es="Distancia:" data-en="Distance:">Distancia:</strong> 18-20 Kms. aprox.</p>
+                        <p><strong data-es="Duración:" data-en="Duration:">Duración:</strong> 6-7 <span data-es="horas" data-en="hours">horas</span></p>
+                        <p><strong data-es="Categoría:" data-en="Category:">Categoría:</strong> <span data-es="Intermedia-Alta" data-en="Intermediate-High">Intermedia-Alta</span></p>
+                        <p><strong data-es="Clima:" data-en="Weather:">Clima:</strong> <span data-es="Frío de montaña (10°C - 16°C)" data-en="Mountain cold (10°C - 16°C)">Frío de montaña (10°C - 16°C)</span></p>
                     </div>
                     <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #8e44ad, #9b59b6); color: white; text-align: center; border-radius: 15px; padding: 1.5rem;">
-                        <h4 style="color: white; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <h4 style="color: white; font-size: 1.5rem;">💰 <span data-es="PRECIO ESPECIAL" data-en="SPECIAL PRICE">PRECIO ESPECIAL</span></h4>
                         <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$120.000 COP</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Por persona - Incluye todo lo mencionado</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;" data-es="Por persona - Incluye todo lo mencionado" data-en="Per person - Includes everything mentioned">Por persona - Incluye todo lo mencionado</p>
                     </div>
                 </div>
                 <div class="itinerario">
-                    <h4>🗓️ Itinerario Detallado</h4>
+                    <h4>🗓️ <span data-es="Itinerario Detallado" data-en="Detailed Itinerary">Itinerario Detallado</span></h4>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="time">06:30 - 07:30 a.m.</span>
-                            <span class="activity">Salida desde Tunja por camino real hacia veredas tradicionales</span>
+                            <span class="activity" data-es="Salida desde Tunja por camino real hacia veredas tradicionales" data-en="Departure from Tunja via royal road to traditional villages">Salida desde Tunja por camino real hacia veredas tradicionales</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">07:30 - 09:00 a.m.</span>
-                            <span class="activity">Ascenso por Alto de La Candelaria - Vistas panorámicas</span>
+                            <span class="activity" data-es="Ascenso por Alto de La Candelaria - Vistas panorámicas" data-en="Ascent through Alto de La Candelaria - Panoramic views">Ascenso por Alto de La Candelaria - Vistas panorámicas</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">09:00 - 10:30 a.m.</span>
-                            <span class="activity">Descenso hacia zona rural de Paipa</span>
+                            <span class="activity" data-es="Descenso hacia zona rural de Paipa" data-en="Descent to rural area of Paipa">Descenso hacia zona rural de Paipa</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">10:30 - 11:30 a.m.</span>
-                            <span class="activity">Llegada al Pantano de Vargas - Explicación histórica</span>
+                            <span class="activity" data-es="Llegada al Pantano de Vargas - Explicación histórica" data-en="Arrival at Pantano de Vargas - Historical explanation">Llegada al Pantano de Vargas - Explicación histórica</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">11:30 - 1:00 p.m.</span>
-                            <span class="activity">Caminata final hacia Paipa centro</span>
+                            <span class="activity" data-es="Caminata final hacia Paipa centro" data-en="Final walk to Paipa center">Caminata final hacia Paipa centro</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">1:00 - 2:00 p.m.</span>
-                            <span class="activity">Almuerzo de celebración en restaurante típico</span>
+                            <span class="activity" data-es="Almuerzo de celebración en restaurante típico" data-en="Celebration lunch at typical restaurant">Almuerzo de celebración en restaurante típico</span>
                         </div>
                     </div>
                 </div>
                 <div class="inclusiones">
-                    <h4>✅ Incluye</h4>
+                    <h4>✅ <span data-es="Incluye" data-en="Includes">Incluye</span></h4>
                     <ul>
-                        <li>Guianza especializada durante todo el recorrido</li>
-                        <li>Seguro básico de accidentes</li>
-                        <li>Refrigerio de bienvenida</li>
-                        <li>Almuerzo típico boyacense en Paipa</li>
-                        <li>Certificado digital de participación</li>
+                        <li data-es="Guianza especializada durante todo el recorrido" data-en="Specialized guidance throughout the route">Guianza especializada durante todo el recorrido</li>
+                        <li data-es="Seguro básico de accidentes" data-en="Basic accident insurance">Seguro básico de accidentes</li>
+                        <li data-es="Refrigerio de bienvenida" data-en="Welcome snack">Refrigerio de bienvenida</li>
+                        <li data-es="Almuerzo típico boyacense en Paipa" data-en="Typical Boyacense lunch in Paipa">Almuerzo típico boyacense en Paipa</li>
+                        <li data-es="Certificado digital de participación" data-en="Digital participation certificate">Certificado digital de participación</li>
                     </ul>
-                    <h4>❌ No Incluye</h4>
+                    <h4>❌ <span data-es="No Incluye" data-en="Not Included">No Incluye</span></h4>
                     <ul>
-                        <li>Transporte de regreso a Tunja</li>
-                        <li>Actividades opcionales en Paipa (termales, spa)</li>
-                        <li>Gastos personales no especificados</li>
+                        <li data-es="Transporte de regreso a Tunja" data-en="Return transportation to Tunja">Transporte de regreso a Tunja</li>
+                        <li data-es="Actividades opcionales en Paipa (termales, spa)" data-en="Optional activities in Paipa (hot springs, spa)">Actividades opcionales en Paipa (termales, spa)</li>
+                        <li data-es="Gastos personales no especificados" data-en="Unspecified personal expenses">Gastos personales no especificados</li>
                     </ul>
                 </div>
                 <div class="coordinacion">
-                    <h4>👨‍💼 Coordinación y Guianza</h4>
-                    <p><strong>Organizador y Guía Experto:</strong> JULIÁN ALEXIS PACHÓN MORALES</p>
-                    <p><em>"Conoceremos la historia paso a paso, siguiendo los mismos caminos que recorrieron los valientes lanceros del Pantano de Vargas"</em></p>
+                    <h4>👨‍💼 <span data-es="Coordinación y Guianza" data-en="Coordination and Guidance">Coordinación y Guianza</span></h4>
+                    <p><strong data-es="Organizador y Guía Experto:" data-en="Organizer and Expert Guide:">Organizador y Guía Experto:</strong> JULIÁN ALEXIS PACHÓN MORALES</p>
+                    <p><em data-es='"Conoceremos la historia paso a paso, siguiendo los mismos caminos que recorrieron los valientes lanceros del Pantano de Vargas"' data-en='"We will learn history step by step, following the same paths that the brave lancers of Pantano de Vargas traveled"'>"Conoceremos la historia paso a paso, siguiendo los mismos caminos que recorrieron los valientes lanceros del Pantano de Vargas"</em></p>
                 </div>
                 <div class="contacto-inscripcion">
-                    <h4>📱 Inscripciones e Información</h4>
+                    <h4>📱 <span data-es="Inscripciones e Información" data-en="Registration and Information">Inscripciones e Información</span></h4>
                     <p><strong>WhatsApp:</strong> +57 315 6651881</p>
-                    <p><strong>Cupos Limitados:</strong> Solo 15 participantes</p>
-                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%202:%20Senderismo%20Tunja-Paipa" target="_blank" class="btn-inscribirse">
+                    <p><strong data-es="Cupos Limitados:" data-en="Limited Spots:">Cupos Limitados:</strong> <span data-es="Solo 15 participantes" data-en="Only 15 participants">Solo 15 participantes</span></p>
+                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%202:%20Senderismo%20Tunja-Paipa" target="_blank" class="btn-inscribirse" data-es="¡INSCRÍBETE AQUÍ!" data-en="REGISTER HERE!">
                         ¡INSCRÍBETE AQUÍ!
                     </a>
                 </div>
             </div>
 
-            
-
             <!-- RUTA 3: Aventura Cultural -->
             <div class="ruta-info">
                 <div class="ruta-header">
-                    <h2>RUTA 3: En transporte privado o tour guiado</h2>
-                    <h3>"Experiencia Premium Tunja-Paipa"</h3>
-                    <p class="ruta-fecha"><strong>Fecha:</strong> Domingo 28 de Septiembre de 2025</p>
+                    <h2 data-es="RUTA 3: En transporte privado o tour guiado" data-en="ROUTE 3: By private transport or guided tour">RUTA 3: En transporte privado o tour guiado</h2>
+                    <h3 data-es='"Experiencia Premium Tunja-Paipa"' data-en='"Premium Experience Tunja-Paipa"'>"Experiencia Premium Tunja-Paipa"</h3>
+                    <p class="ruta-fecha"><strong data-es="Fecha:" data-en="Date:">Fecha:</strong> <span data-es="Domingo 28 de Septiembre de 2025" data-en="Sunday, September 28, 2025">Domingo 28 de Septiembre de 2025</span></p>
                 </div>
                 
                 <!-- Imagen específica de la ruta -->
@@ -723,88 +923,88 @@
                 
                 <div class="ruta-details">
                     <div class="detail-item">
-                        <h4>🏁 Punto de Encuentro</h4>
-                        <p>Terminal de Transportes, Tunja</p>
+                        <h4>🏁 <span data-es="Punto de Encuentro" data-en="Meeting Point">Punto de Encuentro</span></h4>
+                        <p data-es="Terminal de Transportes, Tunja" data-en="Transport Terminal, Tunja">Terminal de Transportes, Tunja</p>
                     </div>
                     <div class="detail-item">
-                        <h4>⏰ Horarios</h4>
-                        <p><strong>Encuentro:</strong> 6:00 A.M.</p>
-                        <p><strong>Salida:</strong> 6:30 A.M.</p>
+                        <h4>⏰ <span data-es="Horarios" data-en="Schedule">Horarios</span></h4>
+                        <p><strong data-es="Encuentro:" data-en="Meeting:">Encuentro:</strong> 6:00 A.M.</p>
+                        <p><strong data-es="Salida:" data-en="Departure:">Salida:</strong> 6:30 A.M.</p>
                     </div>
                     <div class="detail-item">
-                        <h4>📊 Información Técnica</h4>
-                        <p><strong>Distancia:</strong> 45 Kms. aprox.</p>
-                        <p><strong>Duración:</strong> 10-12 horas</p>
-                        <p><strong>Categoría:</strong> Premium</p>
-                        <p><strong>Clima:</strong> Templado (12°C - 18°C)</p>
+                        <h4>📊 <span data-es="Información Técnica" data-en="Technical Information">Información Técnica</span></h4>
+                        <p><strong data-es="Distancia:" data-en="Distance:">Distancia:</strong> 45 Kms. aprox.</p>
+                        <p><strong data-es="Duración:" data-en="Duration:">Duración:</strong> 10-12 <span data-es="horas" data-en="hours">horas</span></p>
+                        <p><strong data-es="Categoría:" data-en="Category:">Categoría:</strong> <span data-es="Premium" data-en="Premium">Premium</span></p>
+                        <p><strong data-es="Clima:" data-en="Weather:">Clima:</strong> <span data-es="Templado (12°C - 18°C)" data-en="Temperate (12°C - 18°C)">Templado (12°C - 18°C)</span></p>
                     </div>
                     <div class="detail-item precio-destacado" style="background: linear-gradient(135deg, #f9a825, #ffc107); color: #333; text-align: center; border-radius: 15px; padding: 1.5rem;">
-                        <h4 style="color: #333; font-size: 1.5rem;">💰 PRECIO ESPECIAL</h4>
+                        <h4 style="color: #333; font-size: 1.5rem;">💰 <span data-es="PRECIO ESPECIAL" data-en="SPECIAL PRICE">PRECIO ESPECIAL</span></h4>
                         <p style="font-size: 2rem; font-weight: bold; margin: 0.5rem 0;">$150.000 COP</p>
-                        <p style="font-size: 0.9rem; opacity: 0.8;">Por persona - Incluye todo lo mencionado</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;" data-es="Por persona - Incluye todo lo mencionado" data-en="Per person - Includes everything mentioned">Por persona - Incluye todo lo mencionado</p>
                     </div>
                 </div>
                 <div class="itinerario">
-                    <h4>🗓️ Itinerario Detallado</h4>
+                    <h4>🗓️ <span data-es="Itinerario Detallado" data-en="Detailed Itinerary">Itinerario Detallado</span></h4>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="time">06:30 - 07:30 a.m.</span>
-                            <span class="activity">Salida en transporte privado desde Tunja hacia Paipa</span>
+                            <span class="activity" data-es="Salida en transporte privado desde Tunja hacia Paipa" data-en="Departure by private transport from Tunja to Paipa">Salida en transporte privado desde Tunja hacia Paipa</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">07:30 - 09:00 a.m.</span>
-                            <span class="activity">Llegada VIP a Paipa - Desayuno gourmet</span>
+                            <span class="activity" data-es="Llegada VIP a Paipa - Desayuno gourmet" data-en="VIP arrival in Paipa - Gourmet breakfast">Llegada VIP a Paipa - Desayuno gourmet</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">09:00 - 11:00 a.m.</span>
-                            <span class="activity">Tour exclusivo del Lago Sochagota con guía especializado</span>
+                            <span class="activity" data-es="Tour exclusivo del Lago Sochagota con guía especializado" data-en="Exclusive tour of Lake Sochagota with specialized guide">Tour exclusivo del Lago Sochagota con guía especializado</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">11:00 - 13:00 p.m.</span>
-                            <span class="activity">Experiencia premium en Termas de Paipa - Spa y relajación</span>
+                            <span class="activity" data-es="Experiencia premium en Termas de Paipa - Spa y relajación" data-en="Premium experience at Paipa Hot Springs - Spa and relaxation">Experiencia premium en Termas de Paipa - Spa y relajación</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">13:00 - 15:00 p.m.</span>
-                            <span class="activity">Almuerzo ejecutivo con vista panorámica</span>
+                            <span class="activity" data-es="Almuerzo ejecutivo con vista panorámica" data-en="Executive lunch with panoramic view">Almuerzo ejecutivo con vista panorámica</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">15:00 - 17:00 p.m.</span>
-                            <span class="activity">Tour cultural por el centro histórico de Paipa</span>
+                            <span class="activity" data-es="Tour cultural por el centro histórico de Paipa" data-en="Cultural tour of Paipa's historic center">Tour cultural por el centro histórico de Paipa</span>
                         </div>
                         <div class="timeline-item">
                             <span class="time">17:00 - 18:30 p.m.</span>
-                            <span class="activity">Regreso cómodo a Tunja en transporte privado</span>
+                            <span class="activity" data-es="Regreso cómodo a Tunja en transporte privado" data-en="Comfortable return to Tunja by private transport">Regreso cómodo a Tunja en transporte privado</span>
                         </div>
                     </div>
                 </div>
                 <div class="inclusiones">
-                    <h4>✅ Incluye</h4>
+                    <h4>✅ <span data-es="Incluye" data-en="Includes">Incluye</span></h4>
                     <ul>
-                        <li>Transporte privado Tunja-Paipa-Tunja</li>
-                        <li>Desayuno gourmet</li>
-                        <li>Entrada premium a las Termas de Paipa</li>
-                        <li>Almuerzo ejecutivo con vista panorámica</li>
-                        <li>Guía turístico especializado VIP</li>
-                        <li>Seguro de viaje premium</li>
-                        <li>Servicio de spa y relajación</li>
+                        <li data-es="Transporte privado Tunja-Paipa-Tunja" data-en="Private transport Tunja-Paipa-Tunja">Transporte privado Tunja-Paipa-Tunja</li>
+                        <li data-es="Desayuno gourmet" data-en="Gourmet breakfast">Desayuno gourmet</li>
+                        <li data-es="Entrada premium a las Termas de Paipa" data-en="Premium entrance to Paipa Hot Springs">Entrada premium a las Termas de Paipa</li>
+                        <li data-es="Almuerzo ejecutivo con vista panorámica" data-en="Executive lunch with panoramic view">Almuerzo ejecutivo con vista panorámica</li>
+                        <li data-es="Guía turístico especializado VIP" data-en="VIP specialized tourist guide">Guía turístico especializado VIP</li>
+                        <li data-es="Seguro de viaje premium" data-en="Premium travel insurance">Seguro de viaje premium</li>
+                        <li data-es="Servicio de spa y relajación" data-en="Spa and relaxation service">Servicio de spa y relajación</li>
                     </ul>
-                    <h4>❌ No Incluye</h4>
+                    <h4>❌ <span data-es="No Incluye" data-en="Not Included">No Incluye</span></h4>
                     <ul>
-                        <li>Gastos personales</li>
-                        <li>Servicios adicionales de spa</li>
-                        <li>Propinas</li>
+                        <li data-es="Gastos personales" data-en="Personal expenses">Gastos personales</li>
+                        <li data-es="Servicios adicionales de spa" data-en="Additional spa services">Servicios adicionales de spa</li>
+                        <li data-es="Propinas" data-en="Tips">Propinas</li>
                     </ul>
                 </div>
                 <div class="coordinacion">
-                    <h4>👨‍💼 Coordinación y Guianza</h4>
-                    <p><strong>Organizador y Guía Experto:</strong> CARLOS ANDRÉS MARTÍNEZ</p>
-                    <p><em>"Experiencia premium para descubrir lo mejor de Paipa"</em></p>
+                    <h4>👨‍💼 <span data-es="Coordinación y Guianza" data-en="Coordination and Guidance">Coordinación y Guianza</span></h4>
+                    <p><strong data-es="Organizador y Guía Experto:" data-en="Organizer and Expert Guide:">Organizador y Guía Experto:</strong> CARLOS ANDRÉS MARTÍNEZ</p>
+                    <p><em data-es='"Experiencia premium para descubrir lo mejor de Paipa"' data-en='"Premium experience to discover the best of Paipa"'>"Experiencia premium para descubrir lo mejor de Paipa"</em></p>
                 </div>
                 <div class="contacto-inscripcion">
-                    <h4>📱 Inscripciones e Información</h4>
+                    <h4>📱 <span data-es="Inscripciones e Información" data-en="Registration and Information">Inscripciones e Información</span></h4>
                     <p><strong>WhatsApp:</strong> +57 320 7654321</p>
-                    <p><strong>Cupos Limitados:</strong> Solo 15 participantes</p>
-                    <a href="https://wa.me/573207654321?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%203:%20En%20transporte%20privado%20o%20tour%20guiado" target="_blank" class="btn-inscribirse">
+                    <p><strong data-es="Cupos Limitados:" data-en="Limited Spots:">Cupos Limitados:</strong> <span data-es="Solo 15 participantes" data-en="Only 15 participants">Solo 15 participantes</span></p>
+                    <a href="https://wa.me/573207654321?text=Hola,%20estoy%20interesado%20en%20la%20RUTA%203:%20En%20transporte%20privado%20o%20tour%20guiado" target="_blank" class="btn-inscribirse" data-es="¡INSCRÍBETE AQUÍ!" data-en="REGISTER HERE!">
                         ¡INSCRÍBETE AQUÍ!
                     </a>
                 </div>
@@ -814,57 +1014,57 @@
             <div class="imagenes-container" style="margin-top: 2rem; text-align: center;">
                 <div class="imagen-lugar">
                     <img src="imagenes/fcaminate.jpeg" alt="¡Camínate con nosotros!" style="max-width: 100%; height: auto; border-radius: 10px;">
-                    <p style="margin-top: 1rem; font-style: italic; color: #2e8540;">¡Camínate con nosotros por los senderos de Boyacá!</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: #2e8540;" data-es="¡Camínate con nosotros por los senderos de Boyacá!" data-en="Walk with us through the trails of Boyacá!">¡Camínate con nosotros por los senderos de Boyacá!</p>
                 </div>
             </div>
         </section>
         
         <!-- Sección de Encuesta -->
         <section id="encuesta" class="section">
-            <h2>Encuesta de Satisfacción</h2>
+            <h2 data-es="Encuesta de Satisfacción" data-en="Satisfaction Survey">Encuesta de Satisfacción</h2>
             
             <div class="empresa-info">
-                <h3>¡Tu opinión es muy importante para nosotros!</h3>
-                <p>Ayúdanos a mejorar nuestros servicios completando esta breve encuesta. Tu feedback nos permitirá ofrecerte experiencias cada vez mejores.</p>
+                <h3 data-es="¡Tu opinión es muy importante para nosotros!" data-en="Your opinion is very important to us!">¡Tu opinión es muy importante para nosotros!</h3>
+                <p data-es="Ayúdanos a mejorar nuestros servicios completando esta breve encuesta. Tu feedback nos permitirá ofrecerte experiencias cada vez mejores." data-en="Help us improve our services by completing this brief survey. Your feedback will allow us to offer you better experiences.">Ayúdanos a mejorar nuestros servicios completando esta breve encuesta. Tu feedback nos permitirá ofrecerte experiencias cada vez mejores.</p>
                 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSftufZ63e4swq0iIMX-XFEwafDSNOHbPIxeQQ-HSHAo_Znb9A/viewform?usp=header" target="_blank" class="encuesta-link">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSftufZ63e4swq0iIMX-XFEwafDSNOHbPIxeQQ-HSHAo_Znb9A/viewform?usp=header" target="_blank" class="encuesta-link" data-es="Ir a la Encuesta de Satisfacción" data-en="Go to Satisfaction Survey">
                     Ir a la Encuesta de Satisfacción
                 </a>
                 
-                <p style="margin-top: 1rem;"><small>La encuesta se abrirá en una nueva ventana. Al completarla, puedes cerrar la pestaña para volver a nuestro sitio.</small></p>
+                <p style="margin-top: 1rem;"><small data-es="La encuesta se abrirá en una nueva ventana. Al completarla, puedes cerrar la pestaña para volver a nuestro sitio." data-en="The survey will open in a new window. After completing it, you can close the tab to return to our site.">La encuesta se abrirá en una nueva ventana. Al completarla, puedes cerrar la pestaña para volver a nuestro sitio.</small></p>
             </div>
         </section>
         
         <!-- Sección de Contacto -->
         <section id="contacto" class="section">
-            <h2>Contacto</h2>
+            <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
             
             <div class="contacto-info">
-                <h3>¿Tienes preguntas o quieres reservar tu tour?</h3>
-                <p>Estamos aquí para ayudarte. Contáctanos a través de WhatsApp para una respuesta rápida y personalizada.</p>
+                <h3 data-es="¿Tienes preguntas o quieres reservar tu tour?" data-en="Do you have questions or want to book your tour?">¿Tienes preguntas o quieres reservar tu tour?</h3>
+                <p data-es="Estamos aquí para ayudarte. Contáctanos a través de WhatsApp para una respuesta rápida y personalizada." data-en="We are here to help you. Contact us through WhatsApp for a quick and personalized response.">Estamos aquí para ayudarte. Contáctanos a través de WhatsApp para una respuesta rápida y personalizada.</p>
                 
                 <div class="form-container">
-                    <h4>Información de Contacto Directo</h4>
+                    <h4 data-es="Información de Contacto Directo" data-en="Direct Contact Information">Información de Contacto Directo</h4>
                     <p><strong>WhatsApp:</strong> +57 315 6651881</p>
                     <p><strong>Email:</strong> info@boyacaraicesvivas.com</p>
                     
-                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20los%20tours%20de%20Boyacá%20Raíces%20Vivas" target="_blank" class="whatsapp-btn">
+                    <a href="https://wa.me/573156651881?text=Hola,%20estoy%20interesado%20en%20los%20tours%20de%20Boyacá%20Raíces%20Vivas" target="_blank" class="whatsapp-btn" data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp">
                         Contactar por WhatsApp
                     </a>
                 </div>
                 
                 <div style="margin-top: 2rem;">
-                    <h4>Horarios de Atención</h4>
-                    <p>Lunes a Viernes: 8:00 am - 6:00 pm</p>
-                    <p>Sábados: 9:00 am - 2:00 pm</p>
-                    <p>Domingos: Cerrado (excepto para tours programados)</p>
+                    <h4 data-es="Horarios de Atención" data-en="Service Hours">Horarios de Atención</h4>
+                    <p data-es="Lunes a Viernes: 8:00 am - 6:00 pm" data-en="Monday to Friday: 8:00 am - 6:00 pm">Lunes a Viernes: 8:00 am - 6:00 pm</p>
+                    <p data-es="Sábados: 9:00 am - 2:00 pm" data-en="Saturdays: 9:00 am - 2:00 pm">Sábados: 9:00 am - 2:00 pm</p>
+                    <p data-es="Domingos: Cerrado (excepto para tours programados)" data-en="Sundays: Closed (except for scheduled tours)">Domingos: Cerrado (excepto para tours programados)</p>
                 </div>
             </div>
         </section>
     </main>
     
     <footer>
-        <p>© 2024 Boyacá Raíces Vivas - Turismo Sostenible</p>
+        <p>© 2024 Boyacá Raíces Vivas - <span data-es="Turismo Sostenible" data-en="Sustainable Tourism">Turismo Sostenible</span></p>
         <p>WhatsApp: +57 315 6651881 | Email: info@boyacaraicesvivas.com</p>
     </footer>
 
@@ -893,6 +1093,73 @@
                     }
                 });
             });
+
+            // Funcionalidad de cambio de idioma
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = 'es'; // Idioma por defecto
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    
+                    // Si ya está seleccionado, no hacer nada
+                    if (selectedLang === currentLang) return;
+                    
+                    // Actualizar botones de idioma
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Cambiar idioma
+                    changeLanguage(selectedLang);
+                    currentLang = selectedLang;
+                });
+            });
+            
+            // Función para cambiar el idioma
+            function changeLanguage(lang) {
+                // Seleccionar todos los elementos con atributos de idioma
+                const elements = document.querySelectorAll('[data-es], [data-en]');
+                
+                elements.forEach(element => {
+                    // Para elementos con texto simple
+                    if (element.hasAttribute(`data-${lang}`)) {
+                        const text = element.getAttribute(`data-${lang}`);
+                        
+                        // Si el elemento es un input o textarea, cambiar placeholder o value
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            if (element.hasAttribute('placeholder')) {
+                                element.setAttribute('placeholder', text);
+                            } else {
+                                element.value = text;
+                            }
+                        } 
+                        // Para otros elementos, cambiar el texto
+                        else {
+                            element.textContent = text;
+                        }
+                    }
+                });
+            }
+
+            // Función para mostrar sección desde el botón en "Así es Boyacá"
+            window.mostrarSeccion = function(sectionId) {
+                // Remover clase active de todos los enlaces
+                navLinks.forEach(l => l.classList.remove('active'));
+                // Ocultar todas las secciones
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Mostrar la sección correspondiente
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                
+                // Activar el enlace correspondiente en el menú
+                const correspondingLink = document.querySelector(`[data-section="${sectionId}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
         });
     </script>
 </body>
